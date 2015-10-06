@@ -2,13 +2,34 @@ package ua.taraslviv.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+
+@Entity
 public class Basket {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@ManyToOne
+	@Column(nullable = false)
 	private Customer customer;
+	
+	@ManyToOne
+	@Column(nullable = false)
 	private Stuff stuff;
-	private Date saleORadditional;
-	private Boolean sold;  			// ุ่๋ไ - java core
+	
+	@Column(nullable = false)
+	private Date saleOrAdditional;
+	
+	@Column(nullable = false)
+	private Boolean isSold;  			// ุ่๋ไ - java core
 	
 	public Basket() {
 		
@@ -39,20 +60,19 @@ public class Basket {
 	}
 
 	public Date getSaleORadditional() {
-		return saleORadditional;
+		return saleOrAdditional;
 	}
 
 	public void setSaleORadditional(Date saleORadditional) {
-		this.saleORadditional = saleORadditional;
+		this.saleOrAdditional = saleORadditional;
 	}
 
 	public Boolean getSold() {
-		return sold;
+		return isSold;
 	}
 
 	public void setSold(Boolean sold) {
-		this.sold = sold;
+		this.isSold = sold;
 	}
-	
 	
 }

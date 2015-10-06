@@ -1,14 +1,40 @@
 package ua.taraslviv.model;
 
-public class Customer {
+import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Customer {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable = false, length = 70)
 	private String firstName;
+	
+	@Column(nullable = false, length = 70)
 	private String lastName;
+	
+	@Column(nullable = false, length = 70)
 	private String email;
+	
+	@Column(nullable = false, length = 100)
 	private String password;
+	
+	@Column(nullable = false)
 	private Integer age;
-	private Basket basket;
+	
+	@Column(nullable = false)
+	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+	private List<Basket> baskets;
 	
 	public Customer() {
 		
@@ -50,11 +76,14 @@ public class Customer {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	public Basket getBasket() {
-		return basket;
+
+	public List<Basket> getBaskets() {
+		return baskets;
 	}
-	public void setBasket(Basket basket) {
-		this.basket = basket;
+
+	public void setBaskets(List<Basket> baskets) {
+		this.baskets = baskets;
 	}
+	
 	
 }
