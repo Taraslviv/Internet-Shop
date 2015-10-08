@@ -1,13 +1,43 @@
 package ua.taraslviv.model;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Stuff { // martin fauler refactoring!
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable = false, length = 100)
 	private String name;
+	
+	@Column(nullable = true, length = 7000)
 	private String description;
+	
+	@Column(nullable = false)
 	private Integer amount;
+	
+	@Column(nullable = false)
 	private Double price;
+	
+	@ManyToOne
+	@JoinColumn(name="id", nullable = false)
+	@Column(nullable = false)
 	private StuffGroup group;
+	
+	@OneToMany(mappedBy = "stuff", fetch = FetchType.LAZY)
+	private List<Basket> baskets;
 	
 	public Stuff() {
 		
@@ -59,6 +89,14 @@ public class Stuff { // martin fauler refactoring!
 
 	public void setGroup(StuffGroup group) {
 		this.group = group;
+	}
+
+	public List<Basket> getBaskets() {
+		return baskets;
+	}
+
+	public void setBaskets(List<Basket> baskets) {
+		this.baskets = baskets;
 	}
 	
 }

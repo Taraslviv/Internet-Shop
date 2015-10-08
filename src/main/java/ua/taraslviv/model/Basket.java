@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 
@@ -18,10 +19,12 @@ public class Basket {
 	private Long id;
 	
 	@ManyToOne
+	@JoinColumn(name="id", nullable = false)
 	@Column(nullable = false)
 	private Customer customer;
 	
 	@ManyToOne
+	@JoinColumn(name="id", nullable = false)
 	@Column(nullable = false)
 	private Stuff stuff;
 	
@@ -59,19 +62,19 @@ public class Basket {
 		this.stuff = stuff;
 	}
 
-	public Date getSaleORadditional() {
+	public Date getSaleOrAdditional() {
 		return saleOrAdditional;
 	}
 
-	public void setSaleORadditional(Date saleORadditional) {
+	public void setSaleOrAdditional(Date saleORadditional) {
 		this.saleOrAdditional = saleORadditional;
 	}
 
-	public Boolean getSold() {
+	public Boolean getIsSold() {
 		return isSold;
 	}
 
-	public void setSold(Boolean sold) {
+	public void setIsSold(Boolean sold) {
 		this.isSold = sold;
 	}
 	
