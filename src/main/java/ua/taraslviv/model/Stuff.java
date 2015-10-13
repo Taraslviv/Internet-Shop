@@ -17,6 +17,7 @@ public class Stuff { // martin fauler refactoring!
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "stuff_id")
 	private Long id;
 	
 	@Column(nullable = false, length = 100)
@@ -33,8 +34,8 @@ public class Stuff { // martin fauler refactoring!
 	
 	@ManyToOne
 	@JoinColumn(name="id", nullable = false)
-	@Column(nullable = false)
-	private StuffGroup group;
+	//@Column(nullable = false)
+	private StuffGroup stuffgroup;
 	
 	@OneToMany(mappedBy = "stuff", fetch = FetchType.LAZY)
 	private List<Basket> baskets;
@@ -84,11 +85,11 @@ public class Stuff { // martin fauler refactoring!
 	}
 
 	public StuffGroup getGroup() {
-		return group;
+		return stuffgroup;
 	}
 
 	public void setGroup(StuffGroup group) {
-		this.group = group;
+		this.stuffgroup = group;
 	}
 
 	public List<Basket> getBaskets() {

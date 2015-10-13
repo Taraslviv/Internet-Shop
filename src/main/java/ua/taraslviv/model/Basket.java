@@ -19,13 +19,13 @@ public class Basket {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable = false)
-	@Column(nullable = false)
+	@JoinColumn(name="customer_id", nullable = false)
+	//@Column(nullable = false)
 	private Customer customer;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable = false)
-	@Column(nullable = false)
+	@JoinColumn(name="stuff_id", nullable = false)
+	//@Column(nullable = false)
 	private Stuff stuff;
 	
 	@Column(nullable = false)

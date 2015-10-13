@@ -8,11 +8,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value = {"/", "home"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String homePage(Model model) {
 		
-		model.addAttribute("All is right!", "messageOk");
+		model.addAttribute("messageOk", "Alright!");
 		
 		return "index";
 	}
+
+	@RequestMapping(value = {"/users"}, method = RequestMethod.GET)
+	public String users(Model model) {
+		
+		model.addAttribute("messageFromUser", "USERS! secutity is working");
+		
+		return "index";
+	}
+
 }
