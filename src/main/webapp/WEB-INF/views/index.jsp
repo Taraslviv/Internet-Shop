@@ -18,17 +18,13 @@
 			</div>
 		</form>
 	</sec:authorize>
-	<sec:authorize access="isAuthenticated()">
-		<a href="<c:url value="/j_spring_security_logout"/>">Log Out</a>
-	</sec:authorize>
 
 <sec:authorize access="hasAnyRole('ROLE_ADMIN','CUSTOMER_USER')">
-<h3 color="grey">${messageOk}<h3>
+<h3>${messageOk}<h3>
 </sec:authorize>
-<h4 collor="yellow">${messageFromUser}</h4>
 
 	<sec:authorize access="isAuthenticated()">
-		<a href="<c:url value="/j_spring_security_logout"/>">Log Out</a>
+		<a href="<c:url value="/j_spring_security_logout"/>">Log Out</a> <%--c:url --%>
 	</sec:authorize>
 </body>
 </html>

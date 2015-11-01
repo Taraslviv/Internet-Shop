@@ -15,7 +15,7 @@ public class CustomerDaoImpl extends ElementDaoImpl<Customer> implements Custome
 	public Customer findByEmail(String email) {
 		return (Customer) entityManager
 				.createQuery("select e from Customer e where e.email = :email")
-				.setParameter(email, email).getSingleResult();
+				.setParameter("email", email).getSingleResult();
 	}
 
 }
