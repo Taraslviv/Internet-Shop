@@ -19,26 +19,11 @@ public class HomeController {
 	@RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
 	public String homePage(Model model) {
 		
-		model.addAttribute("messageOk", "Alright!");
-		
-		return "index";
-	}
-
-	@RequestMapping(value = {"/users"}, method = RequestMethod.GET)
-	public String users(Model model) {
-		
-		Customer customer = customerService.getCustomerById(1L);
-		
-		model.addAttribute("customer_email", customer.getEmail());
-		model.addAttribute("customer_password", customer.getPassword());
-
 		return "index";
 	}
 	
 	@RequestMapping(value = {"/fail"}, method = RequestMethod.GET)
 	public String userFail(Model model) {
-		
-		model.addAttribute("message", "asses is denied");
 
 		return "index";
 	}

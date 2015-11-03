@@ -7,19 +7,7 @@
 <title>Registration</title>
 </head>
 <body>
-		<sec:authorize access="isAnonymous()">
-		<form action="login_user" method="post">
-			<div>
-				<input type="email" class="form-control" name="email"
-					placeholder="email" required> <input type="password"
-					class="form-control" name="password" placeholder="password"
-					required>
-			</div>
-			<div>
-				<button class="btn btn-sample" type="submit">Enter</button>
-			</div>
-		</form>
-	</sec:authorize>
+
 	
 </body>
 </html>
