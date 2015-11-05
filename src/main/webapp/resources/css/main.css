@@ -10,6 +10,21 @@ body {
 	max-height: 200px;
 }
 
+#logout {
+	position:relative;
+	top: 130px;
+}
+
+#login {
+	position:relative;
+	top: 150px;
+}
+
+#backet {
+	position:relative;
+	top: 200px;
+}
+
 .header {
 	position: absolute;
 	left: 0;

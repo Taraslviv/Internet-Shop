@@ -19,5 +19,4 @@ public class CustomerController {
 		return "login";
 	}
 	
-	
 }

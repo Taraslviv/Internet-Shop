@@ -8,9 +8,9 @@
 
 <div class="internal-buttons">
 	<ul class="nav nav-sidebar">
-<%-- 		<li><a href="home">Home</a></li>
-		<sec:authorize access="isAuthenticated()">
-			<li><a href="basket">Basket</a></li>
-		</sec:authorize> --%>
+		<li><a href="">Books</a></li>
+		<li><a href="">Furniture</a></li>
+		<li><a href="">Clothes</a></li>
+		<li><a href="">BT</a></li>
 	</ul>
 </div>

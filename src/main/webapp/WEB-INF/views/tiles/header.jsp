@@ -4,23 +4,24 @@
 <%@ page session="false"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+	
 <div class="header">
 	<div class="title">
 		<h3>Internet-Shop</h3>
 	</div>
-	<div>
+	<div id="login">
 	<sec:authorize access="isAnonymous()">
-		<a href="login">Login</a>
+		<a href="login"><button>Login</button></a>
 	</sec:authorize>
 	</div>
-	<div>
+	<div id="backet">
 		<sec:authorize access="isAuthenticated()">
-			<a href="basket">Basket</a>
+			<a href="basket"><button>Basket</button></a>
 		</sec:authorize>
 	</div>
-	<div>
+	<div id="logout">
 		<sec:authorize access="isAuthenticated()">
-		<a href="<c:url value="/j_spring_security_logout"/>">Log Out</a>
+		<a href="<c:url value="/j_spring_security_logout"/>"><button>Log Out</button></a>
 		</sec:authorize>
 	</div>
 </div>

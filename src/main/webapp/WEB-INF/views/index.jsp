@@ -4,7 +4,27 @@
 <%@ page session="false"%>
 <html>
 <body>
-<h2>Hello Internet shop!</h2>
+<sec:authorize access="isAuthenticated()">
+<div class="hello">Hello ${customer_name }!</div>
+</sec:authorize>
+
+<h2>Stuff</h3>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Price</th>
+	</tr>
+	<c:forEach items="${all_stuff}" var="stuff">
+		<tr>
+			<td>${stuff.id}</td>
+			<td>${stuff.name}</td>
+			<td>${stuff.description}</td>
+			<td>${stuff.price}</td>
+		</tr>
+	</c:forEach>
+</table>
 
 <sec:authorize access="hasAnyRole('ROLE_ADMIN','CUSTOMER_USER')">
 
